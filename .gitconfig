@@ -1,0 +1,9 @@
+[https]
+	proxy = https://127.0.0.1:7890
+[http]
+	proxy = http://127.0.0.1:7890
+[color]
+	ui = auto
+[user]
+	email = 20837051+demondancer@users.noreply.github.com
+	name = DemonDancer
