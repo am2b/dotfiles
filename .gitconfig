@@ -7,3 +7,6 @@
 [user]
 	email = 20837051+demondancer@users.noreply.github.com
 	name = DemonDancer
+[alias]
+	co = checkout
+	br = branch
