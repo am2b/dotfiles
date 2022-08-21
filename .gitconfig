@@ -10,3 +10,7 @@
 [alias]
 	co = checkout
 	br = branch
+	ss = status
+	ci = commit
+[core]
+	editor = vim
