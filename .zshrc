@@ -91,6 +91,10 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+#usage:vim <c-t> will open fzf which is the result of fd(include soft links,hidden files but not .git)
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -99,6 +103,8 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #----------custom----------
+
+alias so="source"
 
 alias ls="ls --color=auto -F"
 alias ll="ls -alh"
@@ -119,6 +125,11 @@ alias tm="tmux new -A -s"
 alias tmls="tmux list-sessions"
 alias tmlw="tmux list-windows -a"
 alias tmlp="tmux list-panes -a"
+
+alias fdf="fd -t f"
+alias fdd="fd -t d"
+alias fdx="fd -t x"
+
 
 export PATH=~/bin:"$PATH"
 
