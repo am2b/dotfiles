@@ -105,8 +105,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 #----------custom----------
 
-alias so="source"
-
 alias ls="ls --color=auto -F"
 alias ll="ls -alh"
 alias lr="ls -alhR"
@@ -115,22 +113,14 @@ alias grep="grep -E"
 
 alias locate="locate --regex"
 alias fda="fd -H"
-
-alias addx="chmod +x"
-
-alias rd="rm -rf"
-
-alias untt="tar -zxvf"
+alias fdf="fd -t f"
+alias fdd="fd -t d"
+alias fdx="fd -t x"
 
 alias tm="tmux new -A -s"
 alias tmls="tmux list-sessions"
 alias tmlw="tmux list-windows -a"
 alias tmlp="tmux list-panes -a"
-
-alias fdf="fd -t f"
-alias fdd="fd -t d"
-alias fdx="fd -t x"
-
 
 export PATH=~/bin:"$PATH"
 
