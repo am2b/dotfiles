@@ -1,163 +1,9 @@
-"********** Vundle **********
-
-"vundle requires filetype off
-filetype off
-
-"set the runtime path to include vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-
-"let vundle manage vundle,required
-Plugin 'VundleVim/Vundle.vim'
-
-"easymotion/vim-easymotion
-Plugin 'easymotion/vim-easymotion'
-
-"file system explore
-Plugin 'preservim/nerdtree'
-
-"comment stuff out
-Plugin 'preservim/nerdcommenter'
-
-"an efficient fuzzy files finder
-"Plugin 'Yggdroot/LeaderF'
-
-"enhances Netrw
-Plugin 'tpope/vim-vinegar'
-
-"color scheme
-Plugin 'morhetz/gruvbox'
-
-"automatically clear search highlights after you move your cursor
-Plugin 'haya14busa/is.vim'
-
-"undo tree
-Plugin 'mbbill/undotree'
-
-"run your favorite search tool from vim
-Plugin 'mileszs/ack.vim'
-
-"make the yanked region apparent
-Plugin 'machakann/vim-highlightedyank'
-
-"repeat
-Plugin 'tpope/vim-repeat'
-
-"a number of useful motions
-"Plugin 'tpope/vim-unimpaired'
-
-"all about surroundings
-"Plugin 'tpope/vim-surround'
-
-"a status line
-Plugin 'vim-airline/vim-airline'
-
-"airline themes
-Plugin 'vim-airline/vim-airline-themes'
-
-"shows a git diff in the sign column
-Plugin 'airblade/vim-gitgutter'
-
-"fugitive
-Plugin 'tpope/vim-fugitive'
-
-"super tab
-Plugin 'ervandew/supertab'
-
-"python autocompletion
-Plugin 'davidhalter/jedi-vim'
-
-"syntax checking
-Plugin 'vim-syntastic/syntastic'
-
-"tagbar
-Plugin 'preservim/tagbar'
-
-"ruby
-Plugin 'vim-ruby/vim-ruby'
-
-"vim tmux navigator
-Plugin 'christoomey/vim-tmux-navigator'
-
-"chinese input method
-Plugin 'rlue/vim-barbaric'
-
-call vundle#end()
-
-"turn on three useful option
-filetype plugin indent on
-
-"close vim or a tab automatically when nerdtree is the last window
-"exit vim if nerdtree is the only window remaining in the only tab
-autocmd bufenter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-"close the tab if NERDTree is the only window remaining in it
-autocmd bufenter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-"do not replace Netrw
-let NERDTreeHijackNetrw = 0
-
-"align delimiters left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
-"empty lines
-let g:NERDCommentEmptyLines = 1
-"white spaces
-let g:NERDTrimTrailingWhitespace = 1
-"check
-let g:NERDToggleCheckAllLines = 1
-
-"chang the default mapping of searching files command
-let g:Lf_ShortcutF = '<c-p>'
-
-"undo tree
-if has("persistent_undo")
-    let target_path = expand('~/.undodir')
-    "create the directory and any parent directories,if the location does not
-    "exist
-    if !isdirectory(target_path)
-        call mkdir(target_path,"p",0700)
-    endif
-    let &undodir = target_path
-    set undofile
-endif
-if !exists('g:undotree_WindowLayout')
-    let g:undotree_WindowLayout = 3
-endif
-
-"ack
-if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
-endif
-
-"highlight yank
-let g:highlightedyank_highlight_duration = 2000
-
-"get a list of counts of git diffs from the status line
-function! GitStatus()
-    let [a,m,r] = GitGutterGetHunkSummary()
-    return printf('+%d ~%d -%d',a,m,r)
-endfunction
-set statusline+=%{GitStatus()}
-
-"airline theme
-let g:airline_theme = 'dark'
-
-"fugitive
-set statusline+=%{FugitiveStatusline()}
-
-"syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-"********** END VUNDLE **********
+"do not source .vimrc in shell,must do this in vim command mode
+"just:source $MYVIMRC
 
 "********** SETTINGS **********
 
-"use vim,not vi
+"no need to be compatible with vi
 set nocompatible
 
 "utf-8
@@ -166,7 +12,7 @@ set encoding=utf-8
 "coding method used by the terminal
 set termencoding=utf-8
 
-"Enable 24-bit true colors if your terminal supports it.
+"enable 24-bit true colors if your terminal supports it.
 if (has("termguicolors"))
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -186,13 +32,10 @@ syntax on
 "show line number
 set number
 
-"show the relative line number
-"set relativenumber
-
 "set the number of spaces indented when the Tab key is pressed
 set tabstop=4
 
-"the Tab key will be replaced with the spaces
+"the tab key will be replaced with the spaces
 set expandtab
 
 "the number of spaces used for automatic indentation
@@ -206,7 +49,6 @@ set showcmd
 
 "displays the null characters at the end of line
 set list listchars=trail:.
-
 
 "highlight search results
 set hlsearch
@@ -243,13 +85,81 @@ set title
 "do not use swap file
 set noswapfile
 
-"in multiple windows,close the buffer without closing the window
-command! Bd :bp | :sp | :bn | :bd
-
 "copy to system register(*,+)
 set clipboard=unnamed,unnamedplus
 
+"in multiple windows,close the buffer without closing the window
+command! Bd :bp | :sp | :bn | :bd
+
+"turn on three useful option
+filetype plugin indent on
+
 "********** END SETTINGS **********
+
+"********** PLUGINS SETTINGS **********
+
+"load all plugins in the start directory
+packloadall
+"load help documentation for all plugins
+silent! helptags ALL
+
+"undo tree
+if has("persistent_undo")
+    let target_path = expand('~/.undodir')
+    "create the directory and any parent directories,if the location does not
+    "exist
+    if !isdirectory(target_path)
+        call mkdir(target_path,"p",0700)
+    endif
+    let &undodir = target_path
+    set undofile
+endif
+if !exists('g:undotree_WindowLayout')
+    let g:undotree_WindowLayout = 3
+endif
+
+"highlight yanked
+let g:highlightedyank_highlight_duration = 2000
+
+"airline theme
+let g:airline_theme = 'dark'
+
+"ack
+"if executable('ag')
+"    let g:ackprg = 'ag --vimgrep'
+"endif
+
+"get a list of counts of git diffs from the status line
+"function! GitStatus()
+"    let [a,m,r] = GitGutterGetHunkSummary()
+"    return printf('+%d ~%d -%d',a,m,r)
+"endfunction
+"set statusline+=%{GitStatus()}
+
+"fugitive
+"set statusline+=%{FugitiveStatusline()}
+
+"syntastic
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+"nerdtree
+"exit vim if nerdtree is the only window remaining in the only tab
+"autocmd bufenter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+"close the tab if NERDTree is the only window remaining in it
+"autocmd bufenter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+"do not replace Netrw
+"let NERDTreeHijackNetrw = 0
+
+"chang the default mapping of searching files command
+"let g:Lf_ShortcutF = '<c-p>'
+
+"********** END PLUGINS SETTINGS **********
 
 "********** KEY MAPPING **********
 
@@ -259,6 +169,9 @@ noremap \ ,
 "time out on mapping after three seconds
 "time out on key codes after ten milliseconds
 set timeout timeoutlen=2000 ttimeoutlen=10
+
+"undo tree
+nnoremap <leader>u :UndotreeToggle<cr>
 
 "navigate around windows(panes)
 nnoremap <c-h> <c-w><c-h>
@@ -279,8 +192,6 @@ nnoremap <bs> <c-b>
 nnoremap [<space> o<esc>
 nnoremap ]<space> O<esc>
 
-"open nerdtree
-nnoremap <c-i> :NERDTreeToggle<cr>
 
 "moving lines
 nnoremap <down> :m .+1<cr>==
@@ -292,8 +203,28 @@ xnoremap <up> :m '<-2<cr>gv==gv
 
 "In insert mode,when you press enter to change the line,automatically switch to normal mode and enter insert mode again
 inoremap <cr> <c-o>o
+"disable mouse wheel
+"set mouse=a
+"nmap <ScrollWheelUp> <nop>
+"nmap <S-ScrollWheelUp> <nop>
+"nmap <C-ScrollWheelUp> <nop>
+"nmap <ScrollWheelDown> <nop>
+"nmap <S-ScrollWheelDown> <nop>
+"nmap <C-ScrollWheelDown> <nop>
+"imap <ScrollWheelUp> <nop>
+"imap <S-ScrollWheelUp> <nop>
+"imap <C-ScrollWheelUp> <nop>
+"imap <ScrollWheelDown> <nop>
+"imap <S-ScrollWheelDown> <nop>
+"imap <C-ScrollWheelDown> <nop>
+"vmap <ScrollWheelUp> <nop>
+"vmap <S-ScrollWheelUp> <nop>
+"vmap <C-ScrollWheelUp> <nop>
+"vmap <ScrollWheelDown> <nop>
+"vmap <S-ScrollWheelDown> <nop>
+"vmap <C-ScrollWheelDown> <nop>
 
-"Plug:easymotion key mapping:
+"easymotion
 "all motions will be triggered with just one <leader>
 nmap <leader> <Plug>(easymotion-prefix)
 "default:g:EasyMotion_do_mapping is on,and defines the following mappings in normal,visual and operator-pending mode
@@ -311,32 +242,29 @@ nmap <leader>k <Plug>(easymotion-k)
 nmap <leader>. <Plug>(easymotion-repeat)
 
 "double <leader>
-"nnoremap <leader><leader>w :w<cr>
-"nnoremap <leader><leader>q :q<cr>
-"nnoremap <leader><leader>wq :wq<cr>
+nnoremap <leader><leader>so :source $MYVIMRC<cr>
+nnoremap <leader><leader>w :w<cr>
+nnoremap <leader><leader>q :q<cr>
+nnoremap <leader><leader>wq :wq<cr>
+nnoremap <leader><leader>ls :ls<cr>
+nnoremap <leader><leader>h :bn<cr>
+nnoremap <leader><leader>l :bp<cr>
+nnoremap <leader><leader>d :bd<cr>
+nnoremap <leader><leader>t :term<cr>
+"sp,vs,on,tabnew,tabclose
 
-"command mode
-"source ~/.vimrc
-"nnoremap <leader><leader>so :so $MYVIMRC<cr>
-"show buffers
-"nnoremap <leader><leader>ls :ls<cr>
-"switch between buffers
-"nnoremap <leader><leader>bn :!w\| :bn<cr>
-"nnoremap <leader><leader>bp :bp<cr>
-":bd,sp,vs,on,wqa,tabnew,tabclose,term
+"open nerdtree
+"nnoremap <c-i> :NERDTreeToggle<cr>
 
 "vim-tmux-navigator
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <leader> :TmuxNavigatePrevious<cr>
+"let g:tmux_navigator_no_mappings = 1
+"nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+"nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+"nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+"nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+"nnoremap <silent> <leader> :TmuxNavigatePrevious<cr>
 "write the current buffer before navigating from vim to tmux pane
-let g:tmux_navigator_save_on_switch = 1
-
-"undo tree
-nnoremap <leader>u :UndotreeToggle<cr>
+"let g:tmux_navigator_save_on_switch = 1
 
 "********** END KEY MAPPING **********
 
@@ -362,6 +290,8 @@ func AutoHeader()
         call setline(1,"#!/usr/bin/lua")
     endif
 endfunc
+
+"the cursor is on the last line,when you open a new script
 autocmd BufNewFile * normal G
 
 "********** AUTO HEADER **********
