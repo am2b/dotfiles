@@ -91,8 +91,9 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+#set fd as the default source for fzf
 #usage:vim <c-t> will open fzf which is the result of fd(include soft links,hidden files but not .git)
-export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --follow --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
