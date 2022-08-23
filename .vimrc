@@ -243,8 +243,8 @@ nmap <leader>. <Plug>(easymotion-repeat)
 
 "double <leader>
 nnoremap <leader><leader>so :source $MYVIMRC<cr>
-nnoremap <leader><leader>w :w<cr>
-nnoremap <leader><leader>q :q<cr>
+nnoremap <leader><leader>ww :w<cr>
+nnoremap <leader><leader>qq :q<cr>
 nnoremap <leader><leader>wq :wq<cr>
 nnoremap <leader><leader>ls :ls<cr>
 nnoremap <leader><leader>h :bn<cr>
@@ -284,7 +284,9 @@ func AutoHeader()
         call setline(3,"use warnings;")
         call setline(4,"use autodie;")
         call setline(5,"use utf8;")
-        call setline(6,"binmode STDOUT,\":encoding(UTF-8)\";")
+        call setline(6,"binmode(STDIN,\":utf8\");")
+        call setline(7,"binmode(STDOUT,\":utf8\");")
+        call setline(8,"binmode(STDERR,\":utf8\");")
     elseif &filetype == 'ruby'
         call setline(1,"#!/usr/bin/ruby")
     elseif &filetype == 'lua'
