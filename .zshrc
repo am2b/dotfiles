@@ -110,6 +110,8 @@ alias ll="ls -alh"
 alias lr="ls -alhR"
 alias lt="ls -alht"
 
+alias fli="file -i"
+
 alias grep="grep -E"
 
 alias locate="locate --regex"
