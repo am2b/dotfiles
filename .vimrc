@@ -281,9 +281,10 @@ func AutoHeader()
     elseif &filetype == 'perl'
         call setline(1,"#!/usr/bin/perl")
         call setline(2,"use v5.30;")
-        call setline(3,"use utf8;")
-        call setline(4,"use warnings;")
-        call setline(5,"use autodie;")
+        call setline(3,"use warnings;")
+        call setline(4,"use autodie;")
+        call setline(5,"use utf8;")
+        call setline(6,"binmode STDOUT,\":encoding(UTF-8)\";")
     elseif &filetype == 'ruby'
         call setline(1,"#!/usr/bin/ruby")
     elseif &filetype == 'lua'
