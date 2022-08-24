@@ -126,6 +126,13 @@ let g:airline_theme = 'dark'
 "enable the tab lists of buffers
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+"sodo apt install fonts-powerline
+":h airline-customization
+let g:airline_symbols.colnr = 'cl:'
+let g:airline_symbols.maxlinenr = '⚡'
 
 "syntastic
 set statusline+=%#warningmsg#
