@@ -185,6 +185,21 @@ set timeout timeoutlen=2000 ttimeoutlen=10
 "undo tree
 nnoremap <leader>u :UndotreeToggle<cr>
 
+"airline switch between tablines
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>0 <Plug>AirlineSelectTab0
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>= <Plug>AirlineSelectNextTab
+
 "navigate around windows(panes)
 nnoremap <c-h> <c-w><c-h>
 nnoremap <c-j> <c-w><c-j>
@@ -218,10 +233,10 @@ nnoremap gj ylr<cr>i<c-r>"<esc>
 "search in current line,better than f and ;
 "in normal move the cursor to some line,and type < then input character or
 "characters and press enter
-nnoremap < V<esc>^/\%V
+"nnoremap < V<esc>^/\%V
 
 "In insert mode,when you press enter to change the line,automatically switch to normal mode and enter insert mode again
-inoremap <cr> <c-o>o
+"inoremap <cr> <c-o>o
 
 "disable mouse wheel
 set mouse=a
@@ -260,6 +275,10 @@ nmap <leader>. <Plug>(easymotion-repeat)
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>r :source $MYVIMRC<cr>
+
+"move the cursor to last edit position but do not enter insert mode
+"if want to enter insert mode,use gi
+nnoremap <leader>i `.
 
 "open nerdtree
 "nnoremap <c-i> :NERDTreeToggle<cr>
