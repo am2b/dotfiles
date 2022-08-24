@@ -147,9 +147,9 @@ let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_enable_perl_checker = 1
 
 "ack
-"if executable('ag')
-"    let g:ackprg = 'ag --vimgrep'
-"endif
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
 
 "get a list of counts of git diffs from the status line
 "function! GitStatus()
