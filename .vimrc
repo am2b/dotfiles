@@ -123,6 +123,9 @@ let g:highlightedyank_highlight_duration = 2000
 
 "airline theme
 let g:airline_theme = 'dark'
+"enable the tab lists of buffers
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
 
 "syntastic
 set statusline+=%#warningmsg#
@@ -167,8 +170,7 @@ let g:syntastic_enable_perl_checker = 1
 "********** KEY MAPPING **********
 
 "map the <leader> key to ',',set it up at the beginning of key mapping
-let mapleader = ","
-noremap \ ,
+let mapleader = "s"
 "time out on mapping after three seconds
 "time out on key codes after ten milliseconds
 set timeout timeoutlen=2000 ttimeoutlen=10
@@ -241,41 +243,19 @@ nmap <leader> <Plug>(easymotion-prefix)
 "default:g:EasyMotion_do_mapping is on,and defines the following mappings in normal,visual and operator-pending mode
 "<leader>f,F,t,T,w,W,b,B,e,E,ge,gE,j,k,n,N,s(find(search) {char} forward and backward)
 let g:EasyMotion_do_mapping = 0
-
-nmap <leader>s <Plug>(easymotion-bd-fl)
-nmap <leader>f <Plug>(easymotion-bd-f)
-nmap <leader>F <Plug>(easymotion-bd-f2)
-nmap <leader>t <Plug>(easymotion-bd-t)
-nmap <leader>w <Plug>(easymotion-bd-w)
-nmap <leader>e <Plug>(easymotion-bd-e)
-nmap <leader>j <Plug>(easymotion-j)
-nmap <leader>k <Plug>(easymotion-k)
+"targets:one character and enter,or two characters without enter
+nmap <leader>s <Plug>(easymotion-s2)
+"targets:no,just jump in current line,same as my shortcut:<
+nmap <leader>f <Plug>(easymotion-bd-wl)
+nmap <leader>j <Plug>(easymotion-bd-jk)
 nmap <leader>. <Plug>(easymotion-repeat)
 
-"double <leader>
-nnoremap <leader><leader>so :source $MYVIMRC<cr>
-nnoremap <leader><leader>ww :w<cr>
-nnoremap <leader><leader>qq :q<cr>
-nnoremap <leader><leader>wq :wq<cr>
-nnoremap <leader><leader>ls :ls<cr>
-nnoremap <leader><leader>h :bn<cr>
-nnoremap <leader><leader>l :bp<cr>
-nnoremap <leader><leader>d :bd<cr>
-nnoremap <leader><leader>t :term<cr>
-"sp,vs,on,tabnew,tabclose
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :q<cr>
+nnoremap <leader>r :source $MYVIMRC<cr>
 
 "open nerdtree
 "nnoremap <c-i> :NERDTreeToggle<cr>
-
-"vim-tmux-navigator
-"let g:tmux_navigator_no_mappings = 1
-"nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-"nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-"nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-"nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-"nnoremap <silent> <leader> :TmuxNavigatePrevious<cr>
-"write the current buffer before navigating from vim to tmux pane
-"let g:tmux_navigator_save_on_switch = 1
 
 "********** END KEY MAPPING **********
 
