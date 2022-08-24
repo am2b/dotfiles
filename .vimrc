@@ -195,7 +195,6 @@ nnoremap <bs> <c-b>
 nnoremap [<space> o<esc>
 nnoremap ]<space> O<esc>
 
-
 "moving lines
 nnoremap <down> :m .+1<cr>==
 nnoremap <up> :m .-2<cr>==
@@ -204,28 +203,32 @@ inoremap <up> <esc>:m .-2<cr>==gi
 xnoremap <down> :m '>+1<cr>gv==gv
 xnoremap <up> :m '<-2<cr>gv==gv
 
+"join lines with space:J,join lines without space:gJ,break line:gj
+nnoremap gj ylr<cr>i<c-r>"<esc>
+
 "In insert mode,when you press enter to change the line,automatically switch to normal mode and enter insert mode again
 inoremap <cr> <c-o>o
+
 "disable mouse wheel
-"set mouse=a
-"nmap <ScrollWheelUp> <nop>
-"nmap <S-ScrollWheelUp> <nop>
-"nmap <C-ScrollWheelUp> <nop>
-"nmap <ScrollWheelDown> <nop>
-"nmap <S-ScrollWheelDown> <nop>
-"nmap <C-ScrollWheelDown> <nop>
-"imap <ScrollWheelUp> <nop>
-"imap <S-ScrollWheelUp> <nop>
-"imap <C-ScrollWheelUp> <nop>
-"imap <ScrollWheelDown> <nop>
-"imap <S-ScrollWheelDown> <nop>
-"imap <C-ScrollWheelDown> <nop>
-"vmap <ScrollWheelUp> <nop>
-"vmap <S-ScrollWheelUp> <nop>
-"vmap <C-ScrollWheelUp> <nop>
-"vmap <ScrollWheelDown> <nop>
-"vmap <S-ScrollWheelDown> <nop>
-"vmap <C-ScrollWheelDown> <nop>
+set mouse=a
+nmap <ScrollWheelUp> <nop>
+nmap <S-ScrollWheelUp> <nop>
+nmap <C-ScrollWheelUp> <nop>
+nmap <ScrollWheelDown> <nop>
+nmap <S-ScrollWheelDown> <nop>
+nmap <C-ScrollWheelDown> <nop>
+imap <ScrollWheelUp> <nop>
+imap <S-ScrollWheelUp> <nop>
+imap <C-ScrollWheelUp> <nop>
+imap <ScrollWheelDown> <nop>
+imap <S-ScrollWheelDown> <nop>
+imap <C-ScrollWheelDown> <nop>
+vmap <ScrollWheelUp> <nop>
+vmap <S-ScrollWheelUp> <nop>
+vmap <C-ScrollWheelUp> <nop>
+vmap <ScrollWheelDown> <nop>
+vmap <S-ScrollWheelDown> <nop>
+vmap <C-ScrollWheelDown> <nop>
 
 "easymotion
 "all motions will be triggered with just one <leader>
