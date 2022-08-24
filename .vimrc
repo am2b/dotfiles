@@ -206,6 +206,11 @@ xnoremap <up> :m '<-2<cr>gv==gv
 "join lines with space:J,join lines without space:gJ,break line:gj
 nnoremap gj ylr<cr>i<c-r>"<esc>
 
+"search in current line,better than f and ;
+"in normal move the cursor to some line,and type < then input character or
+"characters and press enter
+nnoremap < V<esc>^/\%V
+
 "In insert mode,when you press enter to change the line,automatically switch to normal mode and enter insert mode again
 inoremap <cr> <c-o>o
 
