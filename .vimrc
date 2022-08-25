@@ -233,6 +233,9 @@ nnoremap <F9> <esc>$
 inoremap <F8> <c-o>I
 inoremap <F9> <c-o>A
 
+"map alt:in insert mode,if you want to map alt+key,then first press
+"ctrl+v,second press alt+key,then you got it.do not use <>
+
 "map the <leader> key to ',',set it up at the beginning of key mapping
 let mapleader = "s"
 "time out on mapping after three seconds
