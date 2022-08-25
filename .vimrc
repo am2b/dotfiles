@@ -94,6 +94,7 @@ command! Bd :bp | :sp | :bn | :bd
 "turn on three useful option
 filetype plugin indent on
 
+"
 "********** END SETTINGS **********
 
 "********** PLUGINS SETTINGS **********
@@ -230,6 +231,14 @@ xnoremap <up> :m '<-2<cr>gv==gv
 "join lines with space:J,join lines without space:gJ,break line:gj
 nnoremap gj ylr<cr>i<c-r>"<esc>
 
+"auto completion
+inoremap ( ()<c-o>i
+inoremap [ []<c-o>i
+inoremap { {}<c-o>i<cr><cr><c-o>k<tab>
+inoremap ' ''<c-o>i
+inoremap " ""<c-o>i
+inoremap < <><c-o>i
+
 "search in current line,better than f and ;
 "in normal move the cursor to some line,and type < then input character or
 "characters and press enter
@@ -304,6 +313,8 @@ func AutoHeader()
         call setline(6,"binmode(STDIN,\":utf8\");")
         call setline(7,"binmode(STDOUT,\":utf8\");")
         call setline(8,"binmode(STDERR,\":utf8\");")
+        call setline(9,"use feature qw(signatures);")
+        call setline(10,"no warnings qw(experimental::signatures);")
     elseif &filetype == 'ruby'
         call setline(1,"#!/usr/bin/ruby")
     elseif &filetype == 'lua'
