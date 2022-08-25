@@ -211,12 +211,12 @@ xnoremap <up> :m '<-2<cr>gv==gv
 nnoremap gj ylr<cr>i<c-r>"<esc>
 
 "auto completion
-inoremap ( ()<c-o>i
-inoremap [ []<c-o>i
-inoremap { {}<c-o>i<cr><cr><c-o>k<tab>
-inoremap ' ''<c-o>i
-inoremap " ""<c-o>i
-inoremap < <><c-o>i
+inoremap ( ()<esc>i
+inoremap [ []<esc>i
+inoremap { {}<esc>i<cr><cr><esc>kA<tab>
+inoremap ' ''<esc>i
+inoremap " ""<esc>i
+inoremap < <><esc>i
 
 "search in current line,better than f and ;
 "in normal move the cursor to some line,and type < then input character or
@@ -225,7 +225,7 @@ inoremap < <><c-o>i
 
 "In insert mode
 "when you press enter to change the line,automatically switch to normal mode and enter insert mode again
-inoremap <cr> <c-o>o
+inoremap <cr> <esc>o
 
 "move the cursor to end of line
 nnoremap <F8> <esc>^
