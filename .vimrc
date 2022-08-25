@@ -201,6 +201,9 @@ nmap <leader>0 <Plug>AirlineSelectTab0
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>= <Plug>AirlineSelectNextTab
 
+"esc,in all modes
+noremap <c-[> <esc>
+
 "navigate around windows(panes)
 nnoremap <c-h> <c-w><c-h>
 nnoremap <c-j> <c-w><c-j>
@@ -244,8 +247,15 @@ inoremap < <><c-o>i
 "characters and press enter
 "nnoremap < V<esc>^/\%V
 
-"In insert mode,when you press enter to change the line,automatically switch to normal mode and enter insert mode again
-"inoremap <cr> <c-o>o
+"In insert mode
+"when you press enter to change the line,automatically switch to normal mode and enter insert mode again
+inoremap <cr> <c-o>o
+
+"move the cursor to end of line
+nnoremap <F8> <esc>^
+nnoremap <F9> <esc>$
+inoremap <F8> <c-o>I
+inoremap <F9> <c-o>A
 
 "disable mouse wheel
 set mouse=a
@@ -288,6 +298,11 @@ nnoremap <leader>r :source $MYVIMRC<cr>
 "move the cursor to last edit position but do not enter insert mode
 "if want to enter insert mode,use gi
 nnoremap <leader>i `.
+
+"comment
+nnoremap <leader>] 0i <esc>r"
+nnoremap <leader>[ 0i <esc>r#
+nnoremap <leader>' 0x
 
 "open nerdtree
 "nnoremap <c-i> :NERDTreeToggle<cr>
