@@ -227,11 +227,11 @@ inoremap < <><esc>i
 "when you press enter to change the line,automatically switch to normal mode and enter insert mode again
 inoremap <cr> <esc>o
 
-"move the cursor to end of line
-nnoremap <F8> <esc>^
-nnoremap <F9> <esc>$
-inoremap <F8> <c-o>I
-inoremap <F9> <c-o>A
+"move the cursor to head or end of line
+nnoremap h ^
+nnoremap l $
+inoremap h <esc>I
+inoremap l <esc>A
 
 "map alt:in insert mode,if you want to map alt+key,then first press
 "ctrl+v,second press alt+key,then you got it.do not use <>
