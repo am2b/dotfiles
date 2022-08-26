@@ -228,10 +228,10 @@ inoremap < <><esc>i
 inoremap <cr> <esc>o
 
 "move the cursor to head or end of line
-nnoremap h ^
-nnoremap l $
-inoremap h <esc>I
-inoremap l <esc>A
+"nnoremap h ^
+"nnoremap l $
+"inoremap h <esc>^
+"inoremap l <esc>$
 
 "map alt:in insert mode,if you want to map alt+key,then first press
 "ctrl+v,second press alt+key,then you got it.do not use <>
