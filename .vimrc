@@ -282,8 +282,8 @@ nnoremap <leader>r :source $MYVIMRC<cr>
 nnoremap <leader>i `.
 
 "comment
-nnoremap <leader>] 0i <esc>r"
-nnoremap <leader>[ 0i <esc>r#
+nnoremap <leader>] 0i"<esc>
+nnoremap <leader>[ 0i#<esc>
 nnoremap <leader>' 0x
 
 "open nerdtree
