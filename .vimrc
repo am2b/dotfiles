@@ -44,6 +44,11 @@ set shiftwidth=4
 "smart indent
 set smartindent
 
+"indent:backspace over indentation from smartindent
+"eol:backspace over an end of line
+"start:delete last character you input sine enter insert mode
+set backspace=indent,eol,start
+
 "show partial command
 set showcmd
 
@@ -87,7 +92,6 @@ set noswapfile
 
 "copy to system register(*,+)
 set clipboard=unnamed,unnamedplus
-
 "in multiple windows,close the buffer without closing the window
 command! Bd :bp | :sp | :bn | :bd
 
@@ -176,10 +180,6 @@ endif
 "********** END PLUGINS SETTINGS **********
 
 "********** KEY MAPPING **********
-
-"esc,in all modes
-noremap <c-[> <esc>
-inoremap <cr> <esc>
 
 "navigate around windows(panes)
 nnoremap <c-h> <c-w><c-h>
@@ -288,7 +288,6 @@ nnoremap <leader>i `.
 "comment
 nnoremap <leader>] 0i"<esc>
 nnoremap <leader>[ 0i#<esc>
-nnoremap <leader>' 0x
 
 "open nerdtree
 "nnoremap <c-i> :NERDTreeToggle<cr>
