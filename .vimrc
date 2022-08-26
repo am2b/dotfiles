@@ -179,6 +179,7 @@ endif
 
 "esc,in all modes
 noremap <c-[> <esc>
+inoremap <cr> <esc>
 
 "navigate around windows(panes)
 nnoremap <c-h> <c-w><c-h>
@@ -225,7 +226,7 @@ inoremap < <><esc>i
 
 "In insert mode
 "when you press enter to change the line,automatically switch to normal mode and enter insert mode again
-inoremap <cr> <esc>o
+"inoremap <cr> <esc>o
 
 "move the cursor to head or end of line
 "nnoremap h ^
@@ -276,6 +277,9 @@ nmap <leader>. <Plug>(easymotion-repeat)
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>r :source $MYVIMRC<cr>
+
+nnoremap <leader>h ^
+nnoremap <leader>l $
 
 "move the cursor to last edit position but do not enter insert mode
 "if want to enter insert mode,use gi
