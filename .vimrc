@@ -77,9 +77,16 @@ set cursorline
 "Ps = 5 -> blinking bar(xterm)
 "Ps = 6 -> steady bar(xterm)
 "cursor shape in normal mode
-let &t_EI = "\e[3 q"
+"let &t_EI = "\e[3 q"
 "cursor shape in insert mode
-let &t_SI = "\e[5 q"
+"let &t_SI = "\e[5 q"
+if exists('$TMUX')
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\e[3 q\<Esc>\\"
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
+else
+    let &t_EI = "\e[3 q"
+    let &t_SI = "\e[5 q"
+endif
 
 "auto read file,if the current file is modified outside vim
 set autoread
@@ -218,6 +225,12 @@ inoremap { {}<esc>i<cr><cr><esc>kA<tab>
 inoremap ' ''<esc>i
 inoremap " ""<esc>i
 inoremap < <><esc>i
+
+"move cursor in insert mode
+inoremap <c-h> <left>
+inoremap <c-j> <down>
+inoremap <c-k> <up>
+inoremap <c-l> <right>
 
 "search in current line,better than f and ;
 "in normal move the cursor to some line,and type < then input character or
