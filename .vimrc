@@ -222,6 +222,7 @@ nnoremap gj ylr<cr>i<c-r>"<esc>
 inoremap ( ()<esc>i
 inoremap [ []<esc>i
 inoremap { {}<esc>i<cr><cr><esc>kA<tab>
+inoremap } {}<esc>i
 inoremap ' ''<esc>i
 inoremap " ""<esc>i
 inoremap < <><esc>i
@@ -232,6 +233,7 @@ inoremap <c-j> <down>
 inoremap <c-k> <up>
 inoremap <c-l> <right>
 
+inoremap <c-u> <esc>ddO
 "search in current line,better than f and ;
 "in normal move the cursor to some line,and type < then input character or
 "characters and press enter
@@ -239,7 +241,7 @@ inoremap <c-l> <right>
 
 "In insert mode
 "when you press enter to change the line,automatically switch to normal mode and enter insert mode again
-"inoremap <cr> <esc>o
+inoremap <cr> <c-o>o
 
 "move the cursor to head or end of line
 "nnoremap h ^
