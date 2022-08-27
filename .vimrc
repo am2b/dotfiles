@@ -76,10 +76,8 @@ set cursorline
 "Ps = 4 -> steady underline
 "Ps = 5 -> blinking bar(xterm)
 "Ps = 6 -> steady bar(xterm)
-"cursor shape in normal mode
-"let &t_EI = "\e[3 q"
-"cursor shape in insert mode
-"let &t_SI = "\e[5 q"
+"t_EI:cursor shape in normal mode
+"t_SI:cursor shape in insert mode
 if exists('$TMUX')
     let &t_EI = "\<Esc>Ptmux;\<Esc>\e[3 q\<Esc>\\"
     let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
@@ -87,6 +85,8 @@ else
     let &t_EI = "\e[3 q"
     let &t_SI = "\e[5 q"
 endif
+"try to set cursor shape in vim terminal
+let &t_SH = "\e[3 q"
 
 "auto read file,if the current file is modified outside vim
 set autoread
@@ -243,11 +243,8 @@ inoremap <c-u> <esc>ddO
 "when you press enter to change the line,automatically switch to normal mode and enter insert mode again
 inoremap <cr> <c-o>o
 
-"move the cursor to head or end of line
-"nnoremap h ^
-"nnoremap l $
-"inoremap h <esc>^
-"inoremap l <esc>$
+"open terminal at bottom right
+nnoremap <F12> :vert bo term ++kill=term<cr>
 
 "map alt:in insert mode,if you want to map alt+key,then first press
 "ctrl+v,second press alt+key,then you got it.do not use <>
