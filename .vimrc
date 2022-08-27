@@ -86,6 +86,10 @@ else
     let &t_SI = "\e[5 q"
 endif
 "try to set cursor shape in vim terminal
+"open vim and then open term,cursor shape now is correct in term,but continue
+"to open another vim in term,in normal mode,the cursor shape is still
+"correct,then enter insert mode,now the cursor shape is still as same as in
+"normal mode
 let &t_SH = "\e[3 q"
 
 "auto read file,if the current file is modified outside vim
