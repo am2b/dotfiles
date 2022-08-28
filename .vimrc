@@ -302,8 +302,8 @@ nnoremap <leader>l $
 nnoremap <leader>i `.
 
 "comment
-nnoremap <leader>] 0i"<esc>
-nnoremap <leader>[ 0i#<esc>
+nnoremap <leader>] ^i"<esc>
+nnoremap <leader>[ ^i#<esc>
 
 "open nerdtree
 "nnoremap <c-i> :NERDTreeToggle<cr>
