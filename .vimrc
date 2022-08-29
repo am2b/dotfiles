@@ -324,6 +324,9 @@ nnoremap <leader>r :source $MYVIMRC<cr>
 nnoremap <leader>h ^
 nnoremap <leader>l $
 
+"jump between (),[],{}
+nnoremap <leader>b %
+
 "move the cursor to last edit position but do not enter insert mode
 "if want to enter insert mode,use gi
 nnoremap <leader>i `.
