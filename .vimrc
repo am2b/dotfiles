@@ -263,16 +263,16 @@ inoremap fhp +
 inoremap fhk ()
 inoremap fhr ->
 "map numbers
-inoremap flz 0
-inoremap fly 1
-inoremap fle 2
-inoremap fls 3
-inoremap flf 4
-inoremap flw 5
-inoremap fll 6
-inoremap flq 7
-inoremap flb 8
-inoremap flj 9
+inoremap fgz 0
+inoremap fgy 1
+inoremap fge 2
+inoremap fgs 3
+inoremap fgf 4
+inoremap fgw 5
+inoremap fgl 6
+inoremap fgq 7
+inoremap fgb 8
+inoremap fgj 9
 
 "open terminal at bottom right
 nnoremap <F12> :vert bo term ++kill=term<cr>
