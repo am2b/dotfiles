@@ -247,6 +247,21 @@ inoremap <c-u> <esc>ddO
 "when you press enter to change the line,automatically switch to normal mode and enter insert mode again
 inoremap <cr> <c-o>o
 
+"map symbols
+inoremap fhg !
+inoremap fha @
+inoremap fhj #
+inoremap fhm $
+inoremap fhb %
+inoremap fht ^
+inoremap fhq &
+inoremap fhs *
+inoremap fhh -
+inoremap fhx _
+inoremap fhd =
+inoremap fhp +
+inoremap fhk ()
+
 "open terminal at bottom right
 nnoremap <F12> :vert bo term ++kill=term<cr>
 
