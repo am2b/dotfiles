@@ -128,6 +128,7 @@ alias tmlp="tmux list-panes -a"
 alias sdh="shutdown -h now"
 alias sdr="shutdown -r now"
 
+alias pdc="perldoc"
 alias cpm="sudo cpanm"
 export PATH=~/bin:"$PATH"
 
