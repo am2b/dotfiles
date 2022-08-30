@@ -230,6 +230,7 @@ inoremap } {}<esc>i
 inoremap ' ''<esc>i
 inoremap " ""<esc>i
 inoremap < <><esc>i
+inoremap \| \|\|<esc>i
 
 "move cursor in insert mode
 inoremap <c-h> <left>
@@ -260,7 +261,7 @@ inoremap fhh -
 inoremap fhx _
 inoremap fhd =
 inoremap fhp +
-inoremap fhk ()
+inoremap fhk ()<esc>i
 inoremap fhr ->
 "map numbers
 inoremap fgz 0
@@ -273,6 +274,13 @@ inoremap fgl 6
 inoremap fgq 7
 inoremap fgb 8
 inoremap fgj 9
+"map ==,!=,->,=>,<=,>=
+inoremap fte ==
+inoremap ftb !=
+inoremap fts ->
+inoremap ftp =>
+inoremap ftx <=
+inoremap ftd >=
 
 "open terminal at bottom right
 nnoremap <F12> :vert bo term ++kill=term<cr>
