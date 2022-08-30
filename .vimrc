@@ -249,38 +249,39 @@ inoremap <c-u> <esc>ddO
 inoremap <cr> <c-o>o
 
 "map symbols
-inoremap fhg !
-inoremap fha @
-inoremap fhj #
-inoremap fhm $
-inoremap fhb %
-inoremap fht ^
-inoremap fhq &
-inoremap fhs *
-inoremap fhh -
-inoremap fhx _
-inoremap fhd =
-inoremap fhp +
-inoremap fhk ()<esc>i
-inoremap fhr ->
+inoremap Fhg !
+inoremap Fha @
+inoremap Fhj #
+inoremap Fhm $
+inoremap Fhb %
+inoremap Fht ^
+inoremap Fhq &
+inoremap Fhs *
+inoremap Fhh -
+inoremap Fhx _
+inoremap Fhd =
+inoremap Fhp +
+inoremap Fhk ()<esc>i
+inoremap Fhr ->
 "map numbers
-inoremap fgz 0
-inoremap fgy 1
-inoremap fge 2
-inoremap fgs 3
-inoremap fgf 4
-inoremap fgw 5
-inoremap fgl 6
-inoremap fgq 7
-inoremap fgb 8
-inoremap fgj 9
-"map ==,!=,->,=>,<=,>=
-inoremap fte ==
-inoremap ftb !=
-inoremap fts ->
-inoremap ftp =>
-inoremap ftx <=
-inoremap ftd >=
+inoremap Fgz 0
+inoremap Fgy 1
+inoremap Fge 2
+inoremap Fgs 3
+inoremap Fgf 4
+inoremap Fgw 5
+inoremap Fgl 6
+inoremap Fgq 7
+inoremap Fgb 8
+inoremap Fgj 9
+"map ==,!=,->,=>,<=,>=,=~
+inoremap Fte ==
+inoremap Ftb !=
+inoremap Fts ->
+inoremap Ftp =>
+inoremap Ftx <=
+inoremap Ftd >=
+inoremap Ftr =~
 
 "open terminal at bottom right
 nnoremap <F12> :vert bo term ++kill=term<cr>
