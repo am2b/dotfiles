@@ -14,3 +14,15 @@
 	ci = commit
 [core]
 	editor = vim
+[diff]
+	tool = vimdiff3
+[difftool]
+	prompt = false
+	trustExitCode = true
+	keepBackup = false
+[merge]
+	tool = vimdiff3
+[mergetool]
+	prompt = false
+	trustExitCode = true
+	keepBackup = false
