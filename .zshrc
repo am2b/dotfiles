@@ -102,8 +102,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # For a full list of active aliases, run `alias`.
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 #----------custom----------
+
+alias py="python3"
 
 alias ls="ls --color=auto -F"
 alias ll="ls -alh"
@@ -130,6 +131,12 @@ alias sdr="shutdown -r now"
 
 alias pdc="perldoc"
 alias cpm="sudo cpanm"
+
+alias cm="cmake"
+alias cmb="cmake --build"
+
 export PATH=~/bin:"$PATH"
+export VISUAL=vim
+export EDITOR="$VISUAL"
 
 zmodload zsh/files
