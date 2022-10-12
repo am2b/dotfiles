@@ -125,6 +125,8 @@ alias tm="tmux new -A -s"
 alias tmls="tmux list-sessions"
 alias tmlw="tmux list-windows -a"
 alias tmlp="tmux list-panes -a"
+alias tmss="tmux switch -t"
+alias tmks="tmux kill-session -t"
 
 alias sdh="shutdown -h now"
 alias sdr="shutdown -r now"
