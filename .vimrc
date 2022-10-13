@@ -163,7 +163,7 @@ let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_enable_perl_checker = 1
 
 "airblade/vim-gitgutter.git:Get a list of counts of git diffs from the status line.
-"You can jump between hunks with [c and ]c. You can preview, stage, and undo hunks with <leader>hp, <leader>hs, and <leader>hu respectively.You cannot unstage a staged hunk.
+"You can jump between hunks with [c and ]c.
 "A hunk text object is provided which works in visual and operator-pending modes.
 "ic operates on all lines in the current hunk.
 "ac operates on all lines in the current hunk and any trailing empty lines.
@@ -347,6 +347,12 @@ nnoremap <leader>i `.
 "comment
 nnoremap <leader>] ^i"<esc>
 nnoremap <leader>[ ^i#<esc>
+
+"airblade/vim-gitgutter
+"You can preview,stage,and undo hunks with ghp,ghs,and ghu respectively.You cannot unstage a staged hunk.
+nmap ghs <Plug>(GitGutterStageHunk)
+nmap ghu <Plug>(GitGutterUndoHunk)
+nmap ghp <Plug>(GitGutterPreviewHunk)
 
 "open nerdtree
 "nnoremap <c-i> :NERDTreeToggle<cr>
