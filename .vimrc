@@ -162,17 +162,21 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_enable_perl_checker = 1
 
+"airblade/vim-gitgutter.git:Get a list of counts of git diffs from the status line.
+"You can jump between hunks with [c and ]c. You can preview, stage, and undo hunks with <leader>hp, <leader>hs, and <leader>hu respectively.You cannot unstage a staged hunk.
+"A hunk text object is provided which works in visual and operator-pending modes.
+"ic operates on all lines in the current hunk.
+"ac operates on all lines in the current hunk and any trailing empty lines.
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
+set statusline+=%{GitStatus()}
+
 "ack
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
-
-"get a list of counts of git diffs from the status line
-"function! GitStatus()
-"    let [a,m,r] = GitGutterGetHunkSummary()
-"    return printf('+%d ~%d -%d',a,m,r)
-"endfunction
-"set statusline+=%{GitStatus()}
 
 "fugitive
 "set statusline+=%{FugitiveStatusline()}
