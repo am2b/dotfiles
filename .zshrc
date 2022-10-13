@@ -62,7 +62,6 @@ alias cm="cmake"
 alias cmb="cmake --build"
 
 alias ct="cheat"
-alias cte="cheat -e"
 
 export PATH=~/bin:"$PATH"
 export CHEAT_CONFIG_PATH="~/dots/.cheat/conf.yml"
