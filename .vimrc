@@ -378,8 +378,8 @@ func AutoHeader()
         call setline(1,"#!/bin/bash")
     elseif &filetype == 'python'
         call setline(1,"#!/usr/bin/python3")
-        call setline(5,"if __name__ == '__main__':")
-        call setline(6,"main()")
+        call setline(2,"if __name__ == '__main__':")
+        call setline(3,"main()")
     elseif &filetype == 'perl'
         call setline(1,"#!/usr/bin/perl")
         call setline(2,"use v5.30;")
