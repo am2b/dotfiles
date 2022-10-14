@@ -182,6 +182,9 @@ endif
 "without space after comment
 autocmd FileType python setlocal commentstring=#%s
 
+"Yggdroot/indentLine
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
 "fugitive
 "set statusline+=%{FugitiveStatusline()}
 
