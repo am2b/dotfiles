@@ -178,6 +178,10 @@ if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 
+"zaikunzhang/vim-commentary
+"without space after comment
+autocmd FileType python setlocal commentstring=#%s
+
 "fugitive
 "set statusline+=%{FugitiveStatusline()}
 
@@ -195,6 +199,8 @@ endif
 "********** END PLUGINS SETTINGS **********
 
 "********** KEY MAPPING **********
+"make unmodified caps lock an additional esc,but shift+caps lock behaves like regular caps lock
+"mint:Keyboard->Layouts->Options->Caps Lock behavior
 
 "navigate around windows(panes)
 nnoremap <c-h> <c-w><c-h>
@@ -218,12 +224,14 @@ nnoremap ]<space> O<esc>
 "moving lines
 nnoremap <down> :m .+1<cr>==
 nnoremap <up> :m .-2<cr>==
-inoremap <down> <esc>:m .+1<cr>==gi
-inoremap <up> <esc>:m .-2<cr>==gi
-xnoremap <down> :m '>+1<cr>gv==gv
-xnoremap <up> :m '<-2<cr>gv==gv
+"inoremap <down> <esc>:m .+1<cr>==gi
+"inoremap <up> <esc>:m .-2<cr>==gi
+"xnoremap <down> :m '>+1<cr>gv==gv
+"xnoremap <up> :m '<-2<cr>gv==gv
 
-"join lines with space:J,join lines without space:gJ,break line:gj
+"join lines with space:J
+"join lines without space:gJ
+"break line:gj
 nnoremap gj ylr<cr>i<c-r>"<esc>
 
 "auto completion
@@ -250,7 +258,7 @@ inoremap <c-u> <esc>ddO
 
 "In insert mode
 "when you press enter to change the line,automatically switch to normal mode and enter insert mode again
-inoremap <cr> <c-o>o
+inoremap <cr> <esc>o
 
 "map symbols
 inoremap Fhg !
@@ -328,7 +336,8 @@ nmap <leader>s <Plug>(easymotion-s2)
 "targets:no,just jump in current line,same as my shortcut:<
 nmap <leader>f <Plug>(easymotion-bd-wl)
 nmap <leader>j <Plug>(easymotion-bd-jk)
-nmap <leader>. <Plug>(easymotion-repeat)
+"repeat the last jump
+"nmap <leader>. <Plug>(easymotion-repeat)
 
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
@@ -343,10 +352,6 @@ nnoremap <leader>b %
 "move the cursor to last edit position but do not enter insert mode
 "if want to enter insert mode,use gi
 nnoremap <leader>i `.
-
-"comment
-nnoremap <leader>] ^i"<esc>
-nnoremap <leader>[ ^i#<esc>
 
 "airblade/vim-gitgutter
 "You can preview,stage,and undo hunks with ghp,ghs,and ghu respectively.You cannot unstage a staged hunk.
