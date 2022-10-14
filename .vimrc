@@ -101,6 +101,13 @@ set title
 "do not use swap file
 set noswapfile
 
+"default is 20
+set history=200
+
+"in command mode,when the 'wildmenu' option is enabled,vim provides a complete navigation list.we can iterate through the list items in the forward direction by <tab>, <c-n>,or <right>,or backward with <s-tab >, <c-p>,or <left>.
+set wildmenu
+set wildmode=full
+
 "copy to system register(*,+)
 set clipboard=unnamed,unnamedplus
 "in multiple windows,close the buffer without closing the window
@@ -247,21 +254,16 @@ inoremap " ""<esc>i
 inoremap < <><esc>i
 inoremap \| \|\|<esc>i
 
-"move cursor in insert mode
-inoremap <c-h> <left>
-inoremap <c-j> <down>
-inoremap <c-k> <up>
-inoremap <c-l> <right>
-
+"delete line in insert mode
 inoremap <c-u> <esc>ddO
-"search in current line,better than f and ;
-"in normal move the cursor to some line,and type < then input character or
-"characters and press enter
-"nnoremap < V<esc>^/\%V
 
 "In insert mode
 "when you press enter to change the line,automatically switch to normal mode and enter insert mode again
-inoremap <cr> <esc>o
+"<up> and <down>:control the undo unit,can be undo line by line
+inoremap <cr> <esc>o<up><down>
+
+"map <c-o> in insert mode
+inoremap FF <c-o>
 
 "map symbols
 inoremap Fhg !
@@ -301,8 +303,9 @@ inoremap Ftr =~
 "open terminal at bottom right
 nnoremap <F12> :vert bo term ++kill=term<cr>
 
-"map alt:in insert mode,if you want to map alt+key,then first press
-"ctrl+v,second press alt+key,then you got it.do not use <>
+"in command mode,to filter when going back to history commands
+cnoremap <c-p> <up>
+cnoremap <c-n> <down>
 
 "map the <leader> key to ',',set it up at the beginning of key mapping
 let mapleader = "s"
