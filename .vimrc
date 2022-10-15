@@ -116,7 +116,6 @@ command! Bd :bp | :sp | :bn | :bd
 "turn on three useful option
 filetype plugin indent on
 
-"
 "********** END SETTINGS **********
 
 "********** PLUGINS SETTINGS **********
@@ -244,15 +243,17 @@ nnoremap <up> :m .-2<cr>==
 "break line:gj
 nnoremap gj ylr<cr>i<c-r>"<esc>
 
+"use M to replace ` as 'mark',then can not move to middle line of window
+nnoremap <s-m> `
 "auto completion
-inoremap ( ()<esc>i
+"inoremap ( ()<esc>i
 inoremap [ []<esc>i
 inoremap { {}<esc>i<cr><cr><esc>kA<tab>
 inoremap } {}<esc>i
-inoremap ' ''<esc>i
-inoremap " ""<esc>i
-inoremap < <><esc>i
-inoremap \| \|\|<esc>i
+"inoremap ' ''<esc>i
+"inoremap " ""<esc>i
+"inoremap < <><esc>i
+"inoremap \| \|\|<esc>i
 
 "delete line in insert mode
 inoremap <c-u> <esc>ddO
@@ -278,7 +279,9 @@ inoremap Fhh -
 inoremap Fhx _
 inoremap Fhd =
 inoremap Fhp +
-inoremap Fhk ()<esc>i
+inoremap Fhk (
+inoremap Fho )
+inoremap Fhe ):
 inoremap Fhr ->
 "map numbers
 inoremap Fgz 0
@@ -306,6 +309,9 @@ nnoremap <F12> :vert bo term ++kill=term<cr>
 "in command mode,to filter when going back to history commands
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
+
+"when you type%% at the command line prompt,it is automatically expanded to the path of the directory where the active buffer is located, just as you typed%:h <tab>.this mapping term not only works well with the :edit command,but also makes other ex commands,such as :write,:saveas and :read,etc.
+cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%'
 
 "map the <leader> key to ',',set it up at the beginning of key mapping
 let mapleader = "s"
@@ -355,8 +361,7 @@ nnoremap <leader>l $
 "jump between (),[],{}
 nnoremap <leader>b %
 
-"move the cursor to last edit position but do not enter insert mode
-"if want to enter insert mode,use gi
+"move the cursor to last edit position but do not enter insert mode if want to enter insert mode,use gi
 nnoremap <leader>i `.
 
 "airblade/vim-gitgutter
