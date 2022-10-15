@@ -110,6 +110,7 @@ set wildmode=full
 
 "copy to system register(*,+)
 set clipboard=unnamed,unnamedplus
+
 "in multiple windows,close the buffer without closing the window
 command! Bd :bp | :sp | :bn | :bd
 
@@ -119,6 +120,9 @@ filetype plugin indent on
 "********** END SETTINGS **********
 
 "********** PLUGINS SETTINGS **********
+
+"vim startup parameters:
+"-u NONE -N,do not load any plugins at startup
 
 "load all plugins in the start directory
 packloadall
