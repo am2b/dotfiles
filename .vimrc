@@ -373,6 +373,7 @@ nnoremap <leader>q :q<cr>
 ":Bd in multiple windows(panes),close the buffer without closing the (splited)window(pane)
 command! Bd :bp | :sp | :bn | :bd
 
+"$MYVIMRC:~/.vimrc,%:~/dots/.vimrc,so can not :so %
 nnoremap <leader>r :source $MYVIMRC<cr>
 
 nnoremap <leader>h ^
