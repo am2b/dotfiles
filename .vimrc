@@ -58,7 +58,8 @@ set list listchars=trail:.
 "highlight search results
 set hlsearch
 
-"if you use at least one uppercase letter in the mode,the search becomes case-sensitive
+"incsearch:to preview the first match based on the text that has been entered.every time we enter a new character,vim will update the preview immediately.
+"ignorecase:if you use at least one uppercase letter in the mode,the search becomes case-sensitive
 set incsearch ignorecase
 
 "no ignorecase,if uppercase char present
@@ -86,10 +87,7 @@ else
     let &t_SI = "\e[5 q"
 endif
 "try to set cursor shape in vim terminal
-"open vim and then open term,cursor shape now is correct in term,but continue
-"to open another vim in term,in normal mode,the cursor shape is still
-"correct,then enter insert mode,now the cursor shape is still as same as in
-"normal mode
+"open vim and then open term,cursor shape now is correct in term,but continue to open another vim in term,in normal mode,the cursor shape is still correct,then enter insert mode,now the cursor shape is still as same as in normal mode
 let &t_SH = "\e[3 q"
 
 "auto read file,if the current file is modified outside vim
@@ -129,8 +127,7 @@ silent! helptags ALL
 "undo tree
 if has("persistent_undo")
     let target_path = expand('~/.undodir')
-    "create the directory and any parent directories,if the location does not
-    "exist
+    "create the directory and any parent directories,if the location does not exist
     if !isdirectory(target_path)
         call mkdir(target_path,"p",0700)
     endif
@@ -210,7 +207,7 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 "********** KEY MAPPING **********
 "make unmodified caps lock an additional esc,but shift+caps lock behaves like regular caps lock
-"mint:Keyboard->Layouts->Options->Caps Lock behavior
+"linux mint:Keyboard->Layouts->Options->Caps Lock behavior
 
 "navigate around windows(panes)
 nnoremap <c-h> <c-w><c-h>
@@ -315,9 +312,19 @@ cnoremap <c-n> <down>
 "when you type%% at the command line prompt,it is automatically expanded to the path of the directory where the active buffer is located, just as you typed%:h <tab>.this mapping term not only works well with the :edit command,but also makes other ex commands,such as :write,:saveas and :read,etc.
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%'
 
+"redefine the * command in visual mode so that it can find the currently selected text instead of the word under the cursor.
+xnoremap * :<c-u>call <SID>VSetSearch()<cr>/<c-r>=@/<cr><cr>
+xnoremap # :<c-u>call <SID>VSetSearch()<cr>?<c-r>=@/<cr><cr>
+function! s:VSetSearch()
+    let temp = @s
+    norm! gv"sy
+    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+    let @s = temp
+endfunction
+
 "map the <leader> key to ',',set it up at the beginning of key mapping
 let mapleader = "s"
-"time out on mapping after three seconds
+"time out on mapping after two seconds
 "time out on key codes after ten milliseconds
 set timeout timeoutlen=2000 ttimeoutlen=10
 
@@ -347,17 +354,17 @@ nmap <leader> <Plug>(easymotion-prefix)
 let g:EasyMotion_do_mapping = 0
 "targets:one character and enter,or two characters without enter
 nmap <leader>s <Plug>(easymotion-s2)
-"targets:no,just jump in current line,same as my shortcut:<
+"targets:no,just jump in current line
 nmap <leader>f <Plug>(easymotion-bd-wl)
 nmap <leader>j <Plug>(easymotion-bd-jk)
-"repeat the last jump
+"just repeat the last jump
 "nmap <leader>. <Plug>(easymotion-repeat)
 
 nnoremap <leader>w :w<cr>
 "close window(pane),buffer,tab
-":clo close the window(pane),can not close the last window(pane),if that you should use :q
-"tabc close current tab and will close all the windows(panes) inside this tab.if this tab is the last tab,then you should use :q to close the tab
-":bd delete buffer(after save) and close any windows(panes) for this buffer.
+":clo just close the window(pane),do not delete buffer.and can not close the last window(pane),if that you should use :q
+":tabc close current tab and will close all the windows(panes) inside this tab.if this tab is the last tab,then you should use :q to close the tab
+":bd delete buffer(after save) and close any windows(panes) for this buffer,close tab too if the tab has only one window(pane) for the buffer.
 ":q quit vim if all the buffers are saved
 nnoremap <leader>d :bd<cr>
 nnoremap <leader>c :tabc<cr>
