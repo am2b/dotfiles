@@ -111,9 +111,6 @@ set wildmode=full
 "copy to system register(*,+)
 set clipboard=unnamed,unnamedplus
 
-"in multiple windows,close the buffer without closing the window
-command! Bd :bp | :sp | :bn | :bd
-
 "turn on three useful option
 filetype plugin indent on
 
@@ -249,6 +246,7 @@ nnoremap gj ylr<cr>i<c-r>"<esc>
 
 "use M to replace ` as 'mark',then can not move to middle line of window
 nnoremap <s-m> `
+
 "auto completion
 "inoremap ( ()<esc>i
 inoremap [ []<esc>i
@@ -356,7 +354,18 @@ nmap <leader>j <Plug>(easymotion-bd-jk)
 "nmap <leader>. <Plug>(easymotion-repeat)
 
 nnoremap <leader>w :w<cr>
+"close window(pane),buffer,tab
+":clo close the window(pane),can not close the last window(pane),if that you should use :q
+"tabc close current tab and will close all the windows(panes) inside this tab.if this tab is the last tab,then you should use :q to close the tab
+":bd delete buffer(after save) and close any windows(panes) for this buffer.
+":q quit vim if all the buffers are saved
+nnoremap <leader>d :bd<cr>
+nnoremap <leader>c :tabc<cr>
 nnoremap <leader>q :q<cr>
+
+":Bd in multiple windows(panes),close the buffer without closing the (splited)window(pane)
+command! Bd :bp | :sp | :bn | :bd
+
 nnoremap <leader>r :source $MYVIMRC<cr>
 
 nnoremap <leader>h ^
