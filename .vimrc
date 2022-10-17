@@ -32,7 +32,7 @@ syntax on
 "show line number
 set number
 
-"set the number of spaces indented when the Tab key is pressed
+"set the number of spaces indented when the tab key is pressed
 set tabstop=4
 
 "the tab key will be replaced with the spaces
@@ -98,6 +98,9 @@ set title
 
 "do not use swap file
 set noswapfile
+
+"allow buffer to be hidden
+set hidden
 
 "default is 20
 set history=200
@@ -168,7 +171,7 @@ let g:syntastic_enable_perl_checker = 1
 
 "airblade/vim-gitgutter.git:Get a list of counts of git diffs from the status line.
 "You can jump between hunks with [c and ]c.
-"A hunk text object is provided which works in visual and operator-pending modes.
+"a hunk text object is provided which works in visual and operator-pending modes.
 "ic operates on all lines in the current hunk.
 "ac operates on all lines in the current hunk and any trailing empty lines.
 function! GitStatus()
@@ -243,6 +246,9 @@ nnoremap gj ylr<cr>i<c-r>"<esc>
 
 "use M to replace ` as 'mark',then can not move to middle line of window
 nnoremap <s-m> `
+
+"next buffer,in normale mode
+nnoremap <tab> :bn<cr>
 
 "auto completion
 "inoremap ( ()<esc>i
@@ -361,11 +367,29 @@ nmap <leader>j <Plug>(easymotion-bd-jk)
 "nmap <leader>. <Plug>(easymotion-repeat)
 
 nnoremap <leader>w :w<cr>
-"close window(pane),buffer,tab
-":clo just close the window(pane),do not delete buffer.and can not close the last window(pane),if that you should use :q
-":tabc close current tab and will close all the windows(panes) inside this tab.if this tab is the last tab,then you should use :q to close the tab
-":bd delete buffer(after save) and close any windows(panes) for this buffer,close tab too if the tab has only one window(pane) for the buffer.
-":q quit vim if all the buffers are saved
+
+"a buffer is the in-memory text of a file
+"a window is a viewport on a buffer
+"a tab page is a collection of windows
+
+":clo
+"just close the window(pane),do not delete buffer.
+"can not close the last window(pane),if that you should use :q
+
+":on
+"all other windows(panes) are closed,but the current window(pane) is only one on the screen.
+"when the 'hidden' option is set,all buffers in closed windows(panes) become hidden
+
+":q close window(pane),do not delete buffer.quit vim if all the buffers are saved
+
+":tabc close current tab and will close all the windows(panes) inside this tab.
+"when you close a tab in vim,you are not closing a file.you just closed the window layout.
+"the data of the files are still stored in buffers in memory.
+"if this tab is the last tab,then you should use :q to close the tab
+
+":bd delete buffer and close any windows(panes) for this buffer
+"close tab too if the tab has only one window(pane) for the buffer.
+
 nnoremap <leader>d :bd<cr>
 nnoremap <leader>c :tabc<cr>
 nnoremap <leader>q :q<cr>
