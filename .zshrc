@@ -16,6 +16,7 @@ source $ZSH/oh-my-zsh.sh
 #usage:vim <c-t> will open fzf which is the result of fd(include soft links,hidden files but not .git)
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --follow --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS='-m'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
