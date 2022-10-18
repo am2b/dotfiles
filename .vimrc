@@ -180,6 +180,8 @@ function! GitStatus()
 endfunction
 set statusline+=%{GitStatus()}
 
+"kshenoy/vim-signature,ref :h Signature
+
 "ack
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
@@ -328,45 +330,19 @@ function! s:VSetSearch()
     let @s = temp
 endfunction
 
-"map the <leader> key to ',',set it up at the beginning of key mapping
+"********** LEADER **********
 let mapleader = "s"
 "time out on mapping after two seconds
 "time out on key codes after ten milliseconds
 set timeout timeoutlen=2000 ttimeoutlen=10
 
-"undo tree
-nnoremap <leader>u :UndotreeToggle<cr>
-
-"airline switch between tablines
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <leader>0 <Plug>AirlineSelectTab0
-nmap <leader>- <Plug>AirlineSelectPrevTab
-nmap <leader>= <Plug>AirlineSelectNextTab
-
-"easymotion
-"all motions will be triggered with just one <leader>
-nmap <leader> <Plug>(easymotion-prefix)
-"default:g:EasyMotion_do_mapping is on,and defines the following mappings in normal,visual and operator-pending mode
-"<leader>f,F,t,T,w,W,b,B,e,E,ge,gE,j,k,n,N,s(find(search) {char} forward and backward)
-let g:EasyMotion_do_mapping = 0
-"targets:one character and enter,or two characters without enter
-nmap <leader>s <Plug>(easymotion-s2)
-"targets:no,just jump in current line
-nmap <leader>f <Plug>(easymotion-bd-wl)
-nmap <leader>j <Plug>(easymotion-bd-jk)
-"just repeat the last jump
-"nmap <leader>. <Plug>(easymotion-repeat)
+nnoremap <leader>h ^
+nnoremap <leader>l $
 
 nnoremap <leader>w :w<cr>
+
+"move the cursor to last edit position but do not enter insert mode if want to enter insert mode,use gi
+nnoremap <leader>i `.
 
 "a buffer is the in-memory text of a file
 "a window is a viewport on a buffer
@@ -400,20 +376,53 @@ command! Bd :bp | :sp | :bn | :bd
 "$MYVIMRC:~/.vimrc,%:~/dots/.vimrc,so can not :so %
 nnoremap <leader>r :source $MYVIMRC<cr>
 
-nnoremap <leader>h ^
-nnoremap <leader>l $
+"easymotion
+"default:g:EasyMotion_do_mapping is on,and defines the following mappings in normal,visual and operator-pending mode
+"<leader>f,F,t,T,w,W,b,B,e,E,ge,gE,j,k,n,N,s(find(search) {char} forward and backward)
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+"all motions will be triggered with just one <leader>
+nmap <leader> <Plug>(easymotion-prefix)
+"targets:one character and enter,or two characters without enter
+nmap <leader>s <Plug>(easymotion-s2)
+"targets:no,just jump in current line
+nmap <leader>f <Plug>(easymotion-bd-wl)
+nmap <leader>j <Plug>(easymotion-bd-jk)
 
-"jump between (),[],{}
-nnoremap <leader>b %
+"undo tree
+nnoremap <leader>u :UndotreeToggle<cr>
 
-"move the cursor to last edit position but do not enter insert mode if want to enter insert mode,use gi
-nnoremap <leader>i `.
+"airline switch between tablines
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>0 <Plug>AirlineSelectTab0
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>= <Plug>AirlineSelectNextTab
 
 "airblade/vim-gitgutter
 "You can preview,stage,and undo hunks with ghp,ghs,and ghu respectively.You cannot unstage a staged hunk.
 nmap ghs <Plug>(GitGutterStageHunk)
 nmap ghu <Plug>(GitGutterUndoHunk)
 nmap ghp <Plug>(GitGutterPreviewHunk)
+
+"jeetsukumaran/vim-buffergator
+"EasyMotion_do_mapping = 0 does not work,so <leader>b is still \b
+"use gb and gB to flip through the most-recently used buffer stack without opening the buffer listing drawer
+"when the drawer is opened:
+"<cr> to edit the selected buffer in the previous window
+"<c-v> to edit the selected buffer in a new vertical split
+"<c-s> to edit the selected buffer in a new horizontal split
+"<c-t> to edit the selected buffer in a new tab page
+nnoremap <leader>b :BuffergatorOpen<cr>
+nnoremap <leader>B :BuffergatorToggle<cr>
 
 "open nerdtree
 "nnoremap <c-i> :NERDTreeToggle<cr>
