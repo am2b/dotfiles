@@ -1,5 +1,5 @@
-"do not source .vimrc in shell,must do this in vim command mode
-"just:source $MYVIMRC
+"do not source .vimrc in shell,must do this in vim command mode just:source $MYVIMRC
+"sometimes,you reload the .vimrc and think everything is ok,and then found that the result is not what you expected.at this time,it is best to exit vim and reopen vim.
 
 "********** SETTINGS **********
 
@@ -127,6 +127,21 @@ packloadall
 "load help documentation for all plugins
 silent! helptags ALL
 
+"first of all git clone junegunn/fzf to ~/,then:git clone junegunn/fzf.vim to .vim/pack/plugins/start,and set rtp(runtime path)
+set rtp+=~/.fzf
+"usage:
+"Finding files:
+":FZF or :Files or :GFiles to open the popup window(if you like fullscreen popup window,add ! after commands),then
+"<c-t> to open in a new tab
+"<c-v> to open in a vertical window(pane)
+"Finding in files:
+":Ag
+":Buffers
+":Marks
+":Lines find keyword in all the loaded buffers
+":BLines find keyword in the current buffer
+":Windows
+
 "undo tree
 if has("persistent_undo")
     let target_path = expand('~/.undodir')
@@ -232,6 +247,9 @@ nnoremap <bs> <c-b>
 "map [<space> and ]<space> to add a newline after and before the cursor line
 nnoremap [<space> o<esc>
 nnoremap ]<space> O<esc>
+
+"map p to add a space before the cursor in normal mode
+nnoremap p i<space><esc>
 
 "moving lines
 nnoremap <down> :m .+1<cr>==
@@ -340,6 +358,7 @@ nnoremap <leader>h ^
 nnoremap <leader>l $
 
 nnoremap <leader>w :w<cr>
+nnoremap <leader>p p
 
 "move the cursor to last edit position but do not enter insert mode if want to enter insert mode,use gi
 nnoremap <leader>i `.
