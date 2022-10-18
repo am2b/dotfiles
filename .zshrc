@@ -13,7 +13,15 @@ plugins=(git autojump command-not-found colored-man-pages zsh-autosuggestions zs
 source $ZSH/oh-my-zsh.sh
 
 #set fd as the default source for fzf
-#usage:vim <c-t> will open fzf which is the result of fd(include soft links,hidden files but not .git)
+#usage:
+#use <c-p> and <c-n> to move up and down in the popup window,and <esc> to exit
+#on multi-select mode,use <tab> to mark multiple items,<s-tab> to unmark
+#vim <c-t> will open fzf which is the result of fd(include soft links,hidden files but not .git)
+#vim **<tab> cd **<tab>,fuzzy completion for files and directories can be triggered if the word before the cursor ends with the trigger sequence,which is by default **.
+#vim $(fzf)
+#search syntax:
+#^keywords items that start with keywords
+#keywords$ items that end with keywords
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --follow --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='-m'
