@@ -1,17 +1,16 @@
-# Path to your oh-my-zsh installation.
+#path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+#standard plugins can be found in $ZSH/plugins/
+#custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(git autojump command-not-found colored-man-pages zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
+#----------plugins----------
+#junegunn/fzf.vim
 #set fd as the default source for fzf
 #usage:
 #use <c-p> and <c-n> to move up and down in the popup window,and <esc> to exit
@@ -22,16 +21,12 @@ source $ZSH/oh-my-zsh.sh
 #search syntax:
 #^keywords items that start with keywords
 #keywords$ items that end with keywords
+#'keywords exact match keywords
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --follow --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='-m'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
 
 #----------custom----------
 
