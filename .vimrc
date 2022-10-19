@@ -115,6 +115,10 @@ set clipboard=unnamed,unnamedplus
 "turn on three useful option
 filetype plugin indent on
 
+"make files available with <tab> completion
+":set path+=$PWD/**
+"maybe need:let $PWD=getcwd()
+
 "********** END SETTINGS **********
 
 "********** PLUGINS SETTINGS **********
@@ -264,8 +268,10 @@ nnoremap <up> :m .-2<cr>==
 "break line:gj
 nnoremap gj ylr<cr>i<c-r>"<esc>
 
-"use M to replace ` as 'mark',then can not move to middle line of window
-nnoremap <s-m> `
+"move current to the top of the screen
+nnoremap H z<cr>
+"move current to the bottom of the screen
+nnoremap L zb<cr>
 
 "next buffer,in normale mode
 nnoremap <tab> :bn<cr>
@@ -357,7 +363,6 @@ set timeout timeoutlen=2000 ttimeoutlen=10
 nnoremap <leader>h ^
 nnoremap <leader>l $
 
-nnoremap <leader>w :w<cr>
 nnoremap <leader>p p
 
 "move the cursor to last edit position but do not enter insert mode if want to enter insert mode,use gi
@@ -405,7 +410,8 @@ nmap <leader> <Plug>(easymotion-prefix)
 "targets:one character and enter,or two characters without enter
 nmap <leader>s <Plug>(easymotion-s2)
 "targets:no,just jump in current line
-nmap <leader>f <Plug>(easymotion-bd-wl)
+nmap <leader>w <Plug>(easymotion-bd-wl)
+nmap <leader>e <Plug>(easymotion-bd-el)
 nmap <leader>j <Plug>(easymotion-bd-jk)
 
 "undo tree
