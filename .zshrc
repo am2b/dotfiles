@@ -22,7 +22,7 @@ source $ZSH/oh-my-zsh.sh
 #^keywords items that start with keywords
 #keywords$ items that end with keywords
 #'keywords exact match keywords
-export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --follow --hidden --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='-m'
 

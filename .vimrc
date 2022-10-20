@@ -340,7 +340,7 @@ inoremap Ftd >=
 inoremap Ftr =~
 
 "open terminal at bottom right
-nnoremap <F12> :vert bo term ++kill=term<cr>
+nnoremap <silent> <F12> :vert bo term ++kill=term<cr>
 
 "in command mode,to filter when going back to history commands
 cnoremap <c-p> <up>

@@ -1,29 +1,36 @@
 [https]
-	proxy = https://127.0.0.1:7890
+proxy = https://127.0.0.1:7890
 [http]
-	proxy = http://127.0.0.1:7890
+proxy = http://127.0.0.1:7890
+
 [color]
-	ui = auto
+ui = auto
+
 [user]
-	email = 20837051+demondancer@users.noreply.github.com
-	name = DemonDancer
-[alias]
-	co = checkout
-	br = branch
-	ss = status
-	ci = commit
+email = 20837051+demondancer@users.noreply.github.com
+name = DemonDancer
+
 [core]
-	editor = vim
-	autocrlf = false
+editor = vim
+autocrlf = false
+
 [diff]
-	tool = vimdiff3
+tool = vimdiff
 [difftool]
-	prompt = false
-	trustExitCode = true
-	keepBackup = false
+prompt = false
+trustExitCode = true
+keepBackup = false
+
 [merge]
-	tool = vimdiff3
+tool = vimdiff
+conflicstyle = diff3
 [mergetool]
-	prompt = false
-	trustExitCode = true
-	keepBackup = false
+prompt = false
+trustExitCode = true
+keepBackup = false
+
+[alias]
+co = checkout
+br = branch
+ss = status
+ci = commit
