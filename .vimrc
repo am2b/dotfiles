@@ -230,8 +230,9 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 "********** END PLUGINS SETTINGS **********
 
 "********** KEY MAPPING **********
-"make unmodified caps lock an additional esc,but shift+caps lock behaves like regular caps lock
-"linux mint:Keyboard->Layouts->Options->Caps Lock behavior
+"map Alt to Meta,and Caps Lock to Ctrl
+"linux mint:Keyboard->Layouts->Options->Alt/Win key behavior->Alt and Meta are on Alt
+"linux mint:Keyboard->Layouts->Options->Caps Lock behavior->Caps Lock is also a Ctrl
 
 "navigate around windows(panes)
 nnoremap <c-h> <c-w><c-h>
@@ -274,7 +275,10 @@ nnoremap H z<cr>
 nnoremap L zb<cr>
 
 "next buffer,in normale mode
-nnoremap <tab> :bn<cr>
+"nnoremap <tab> :bn<cr>
+
+"Alt is weird
+nnoremap <M-;> <esc>
 
 "auto completion
 "inoremap ( ()<esc>i
@@ -286,8 +290,9 @@ inoremap } {}<esc>i
 "inoremap < <><esc>i
 "inoremap \| \|\|<esc>i
 
-"delete line in insert mode
-inoremap <c-u> <esc>ddO
+"in insert mode,pressing <c-g> u generates a breakpoint
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
 
 "In insert mode
 "when you press enter to change the line,automatically switch to normal mode and enter insert mode again
