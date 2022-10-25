@@ -67,7 +67,9 @@ alias cmb="cmake --build"
 
 alias ct="cheat"
 
-export PATH=~/bin:"$PATH"
+#----------PATH----------
+
+export PATH=~/bin:~/.local/bin:"$PATH"
 export CHEAT_CONFIG_PATH="~/dots/.cheat/conf.yml"
 export VISUAL=vim
 export EDITOR="$VISUAL"

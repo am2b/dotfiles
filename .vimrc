@@ -373,6 +373,9 @@ nnoremap <leader>p p
 "move the cursor to last edit position but do not enter insert mode if want to enter insert mode,use gi
 nnoremap <leader>i `.
 
+"more convenient to end command mode
+nnoremap <leader>; :
+
 "a buffer is the in-memory text of a file
 "a window is a viewport on a buffer
 "a tab page is a collection of windows
