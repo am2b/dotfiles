@@ -70,6 +70,7 @@ alias ct="cheat"
 #----------PATH----------
 
 export PATH=~/bin:~/.local/bin:"$PATH"
+export PYTHONPATH=$PYTHONPATH:~/pylibs
 export CHEAT_CONFIG_PATH="~/dots/.cheat/conf.yml"
 export VISUAL=vim
 export EDITOR="$VISUAL"

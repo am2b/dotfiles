@@ -184,9 +184,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-"syntastic supports perl
+"perl
 let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_enable_perl_checker = 1
+"python
+let g:syntastic_python_checkers = ['pylint']
 
 "airblade/vim-gitgutter.git:Get a list of counts of git diffs from the status line.
 "You can jump between hunks with [c and ]c.
@@ -492,7 +494,7 @@ func AutoHeader()
     elseif &filetype == 'python'
         call setline(1,"#!/usr/bin/python3")
         call setline(2,"if __name__ == '__main__':")
-        call setline(3,"main()")
+        call setline(3,"    main()")
     elseif &filetype == 'perl'
         call setline(1,"#!/usr/bin/perl")
         call setline(2,"use v5.30;")
