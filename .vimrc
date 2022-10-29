@@ -112,6 +112,9 @@ set wildmode=full
 "copy to system register(*,+)
 set clipboard=unnamed,unnamedplus
 
+"auto save when switch buffer
+set autowrite
+
 "turn on three useful option
 filetype plugin indent on
 
@@ -271,9 +274,9 @@ nnoremap <up> :m .-2<cr>==
 "break line:gj
 nnoremap gj ylr<cr>i<c-r>"<esc>
 
-"move current to the top of the screen
+"display current to the top of the screen
 nnoremap H z<cr>
-"move current to the bottom of the screen
+"display current to the bottom of the screen
 nnoremap L zb<cr>
 
 "next buffer,in normale mode
